@@ -1,0 +1,23 @@
+DROP TABLE IF EXISTS `Network`;
+
+
+--
+-- Common.
+--
+CREATE TABLE `Network`(
+ `id` int NOT NULL AUTO_INCREMENT, 
+  `package` varchar(1024) NOT NULL,
+  `tagtime` varchar(512) NOT NULL,
+  `clicktime` varchar(512) NOT NULL,
+  `timestamp` varchar(1024) NOT NULL,
+  `tag` varchar(512) NOT NULL,
+  `contenttype` varchar(512) NOT NULL,
+  `starttime` varchar(512) NOT NULL,
+  `endtime` varchar(512) NOT NULL,
+  `latency` int NOT NULL,
+  `uploadsize` int NOT NULL,
+  `downloadsize` int NOT NULL,
+
+PRIMARY KEY (`id`)
+) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin;
+

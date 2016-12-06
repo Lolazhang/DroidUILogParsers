@@ -1,0 +1,31 @@
+DROP TABLE IF EXISTS `clicktrace`;
+
+
+
+--
+-- Common.
+--
+
+CREATE TABLE `clicktrace` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `package` varchar(1024) NOT NULL,
+  `tagtime` varchar(512) NOT NULL,
+  `clicktime` varchar(512) NOT NULL,
+  `invoketime` varchar(512) NOT NULL,
+  `element` varchar(2096) NOT NULL,
+  `resourceid` varchar(512) NOT NULL,
+  `classname` varchar(512) NOT NULL,
+  `text` varchar(2096) NOT NULL,
+  `left` int NOT NULL,
+  `top` int NOT NULL,
+  `right` int NOT NULL,
+  `bottom` int NOT NULL,
+ 
+  
+
+  PRIMARY KEY (`id`)
+) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin;
+
+
+
+

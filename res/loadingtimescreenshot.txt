@@ -1,0 +1,36 @@
+DROP TABLE IF EXISTS `loadingTimeScreenshot`;
+
+DROP TABLE IF EXISTS `App`;
+
+--
+-- Common.
+--
+
+CREATE TABLE `loadingTimeScreenshot` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `package` varchar(1024) NOT NULL,
+  `tagtime` varchar(512) NOT NULL,
+  `clicktime` varchar(512) NOT NULL,
+  `starttime` varchar(512) NOT NULL,
+  `endtime` varchar(512) NOT NULL,
+  `loadtime` int NOT NULL,
+ 
+  
+
+  PRIMARY KEY (`id`)
+) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin;
+
+
+
+
+
+CREATE TABLE `App` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `package` varchar(1024) NOT NULL,
+  `tagtime` int NOT NULL,
+  
+ 
+  
+
+  PRIMARY KEY (`id`)
+) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin;

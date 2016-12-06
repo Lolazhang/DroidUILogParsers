@@ -1,0 +1,35 @@
+DROP TABLE IF EXISTS `App`;
+
+DROP TABLE IF EXISTS `Strace`;
+--
+-- Common.
+--
+CREATE TABLE `App`(
+ `id` int NOT NULL AUTO_INCREMENT, 
+  `package` varchar(1024) NOT NULL,
+  `tagtime` varchar(512) NOT NULL,
+  `pids` varchar(4096) NOT NULL,
+
+PRIMARY KEY (`id`)
+) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin;
+
+
+
+
+--
+-- Common.
+--
+CREATE TABLE `Strace`(
+ `id` int NOT NULL AUTO_INCREMENT, 
+  `package` varchar(1024) NOT NULL,
+  `tagtime` varchar(512) NOT NULL,
+  `clicktime` varchar(4096) NOT NULL,
+  `timestamp` varchar(4096) NOT NULL,
+	`function` varchar(512) NOT NULL,
+	`latency` double NOT NULL,
+    `filename` varchar(4096) NOT NULL,
+	
+
+PRIMARY KEY (`id`)
+) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin;
+

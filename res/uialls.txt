@@ -1,0 +1,225 @@
+DROP TABLE IF EXISTS `LogcatEvents`;
+DROP TABLE IF EXISTS `LogcatAlls`;
+DROP TABLE IF EXISTS `MemoryInfo`;
+DROP TABLE IF EXISTS `AssetAllocations`;
+DROP TABLE IF EXISTS `DBs`;
+DROP TABLE IF EXISTS `Network`;
+DROP TABLE IF EXISTS `App`;
+DROP TABLE IF EXISTS `Strace`;
+DROP TABLE IF EXISTS `loadingTimeScreenshot`;
+DROP TABLE IF EXISTS `clicktrace`;
+
+
+
+--
+-- Common.
+--
+
+CREATE TABLE `clicktrace` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `package` varchar(1024) NOT NULL,
+  `tagtime` varchar(512) NOT NULL,
+  `clicktime` varchar(512) NOT NULL,
+  `invoketime` varchar(512) NOT NULL,
+  `element` varchar(2096) NOT NULL,
+  `views` int NOT NULL,
+  `resourceid` varchar(512) NOT NULL,
+  `classname` varchar(512) NOT NULL,
+  `text` varchar(2096) NOT NULL,
+  `left` int NOT NULL,
+  `top` int NOT NULL,
+  `right` int NOT NULL,
+  `bottom` int NOT NULL,
+ 
+  
+
+  PRIMARY KEY (`id`)
+) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin;
+
+
+
+
+
+--
+-- Common.
+--
+
+
+
+
+
+
+--
+-- Common.
+--
+
+CREATE TABLE `loadingTimeScreenshot` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `package` varchar(1024) NOT NULL,
+  `tagtime` varchar(512) NOT NULL,
+  `clicktime` varchar(512) NOT NULL,
+  `starttime` varchar(512) NOT NULL,
+  `endtime` varchar(512) NOT NULL,
+  `loadtime` int NOT NULL,
+ 
+  
+
+  PRIMARY KEY (`id`)
+) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin;
+
+
+
+
+
+
+CREATE TABLE `LogcatEvents`(
+ `id` int NOT NULL AUTO_INCREMENT, 
+  `package` varchar(1024) NOT NULL,
+  `tagtime` varchar(512) NOT NULL,
+  `clicktime` varchar(512) NOT NULL,
+  `timestamp` varchar(1024) NOT NULL,
+  `tag` varchar(512) NOT NULL,
+  `content` varchar(4096) NOT NULL,
+
+PRIMARY KEY (`id`)
+) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin;
+
+
+
+
+--
+-- Common.
+--
+CREATE TABLE `LogcatAlls`(
+ `id` int NOT NULL AUTO_INCREMENT, 
+  `package` varchar(1024) NOT NULL,
+  `tagtime` varchar(512) NOT NULL,
+  `clicktime` varchar(512) NOT NULL,
+  `timestamp` varchar(1024) NOT NULL,
+  `tag` varchar(512) NOT NULL,
+  `pid` int NOT NULL,
+  `tid` int NOT NULL,
+  `content` varchar(4096) NOT NULL,
+
+PRIMARY KEY (`id`)
+) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin;
+
+
+
+--
+-- Common.
+--
+CREATE TABLE `AssetAllocations`(
+ `id` int NOT NULL AUTO_INCREMENT, 
+  `package` varchar(1024) NOT NULL,
+  `tagtime` varchar(512) NOT NULL,
+  `name` varchar(1024) NOT NULL,
+  `size` varchar(512) NOT NULL,
+
+PRIMARY KEY (`id`)
+) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin;
+
+CREATE TABLE `DBs`(
+ `id` int NOT NULL AUTO_INCREMENT,  
+  `package` varchar(1024) NOT NULL,
+  `tagtime` varchar(512) NOT NULL,
+  `name` varchar(1024) NOT NULL,
+  `pgsz` int NOT NULL,
+  `dbsz` int NOT NULL,
+  `lookaside` int NOT NULL,
+  `cache` varchar(512) NOT NULL,
+
+PRIMARY KEY (`id`)
+) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin;
+
+
+CREATE TABLE `MemoryInfo` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  
+  `package` varchar(1024) NOT NULL,
+  `tagtime` varchar(512) NOT NULL,
+   `clicktime` varchar(512) NOT NULL,
+  `timestamp` varchar(512) NOT NULL,
+  `image_pss` int NOT NULL,
+  `image_pd` int NOT NULL,
+ `graphics_pss` int NOT NULL,
+	`graphics_pd`  int NOT NULL,
+	`gl_pss` int NOT NULL,
+	`gl_pd` int NOT NULL,
+	`total_pss` int NOT NULL,
+	`total_pd` int NOT NULL,
+	`views` int NOT NULL,
+	`viewrootimpl` int NOT NULL,
+	`opensslsockets` int NOT NULL,
+	`sql_memory_used` int NOT NULL,
+	`sql_pagecache_overflow` int NOT NULL,
+	`sql_malloc_size` int NOT NULL,
+	`db` varchar(4096) NOT NULL,
+	`assets` varchar(4096) NOT NULL,
+  
+
+  PRIMARY KEY (`id`)
+) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin;
+
+
+
+
+--
+-- Common.
+--
+CREATE TABLE `Network`(
+ `id` int NOT NULL AUTO_INCREMENT, 
+  `package` varchar(1024) NOT NULL,
+  `tagtime` varchar(512) NOT NULL,
+  `clicktime` varchar(512) NOT NULL,
+  `timestamp` varchar(1024) NOT NULL,
+  `tag` varchar(512) NOT NULL,
+  `contenttype` varchar(512) NOT NULL,
+  `starttime` varchar(512) NOT NULL,
+  `endtime` varchar(512) NOT NULL,
+  `latency` int NOT NULL,
+  `uploadsize` int NOT NULL,
+  `downloadsize` int NOT NULL,
+
+PRIMARY KEY (`id`)
+) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin;
+
+
+
+--
+-- Common.
+--
+CREATE TABLE `App`(
+ `id` int NOT NULL AUTO_INCREMENT, 
+  `package` varchar(1024) NOT NULL,
+  `tagtime` varchar(512) NOT NULL,
+  `launchtime` varchar(512) NOT NULL,
+  `pids` varchar(4096) NOT NULL,
+
+PRIMARY KEY (`id`)
+) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin;
+
+
+
+
+--
+-- Common.
+--
+CREATE TABLE `Strace`(
+ `id` int NOT NULL AUTO_INCREMENT, 
+  `package` varchar(1024) NOT NULL,
+  `tagtime` varchar(512) NOT NULL,
+  `clicktime` varchar(4096) NOT NULL,
+  `timestamp` varchar(4096) NOT NULL,
+	`function` varchar(512) NOT NULL,
+	`latency` double NOT NULL,
+    `filename` varchar(4096) NOT NULL,
+	
+
+PRIMARY KEY (`id`)
+) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin;
+
+
+
+
+

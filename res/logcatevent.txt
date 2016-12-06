@@ -1,0 +1,37 @@
+DROP TABLE IF EXISTS `LogcatEvents`;
+
+
+--
+-- Common.
+--
+CREATE TABLE `LogcatEvents`(
+ `id` int NOT NULL AUTO_INCREMENT, 
+  `package` varchar(1024) NOT NULL,
+  `tagtime` varchar(512) NOT NULL,
+  `clicktime` varchar(512) NOT NULL,
+  `timestamp` varchar(1024) NOT NULL,
+  `tag` varchar(512) NOT NULL,
+  `content` varchar(4096) NOT NULL,
+
+PRIMARY KEY (`id`)
+) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin;
+
+DROP TABLE IF EXISTS `LogcatAlls`;
+
+
+--
+-- Common.
+--
+CREATE TABLE `LogcatAlls`(
+ `id` int NOT NULL AUTO_INCREMENT, 
+  `package` varchar(1024) NOT NULL,
+  `tagtime` varchar(512) NOT NULL,
+  `clicktime` varchar(512) NOT NULL,
+  `timestamp` varchar(1024) NOT NULL,
+  `tag` varchar(512) NOT NULL,
+  `pid` int NOT NULL,
+  `tid` int NOT NULL,
+  `content` varchar(4096) NOT NULL,
+
+PRIMARY KEY (`id`)
+) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin;

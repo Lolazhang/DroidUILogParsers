@@ -1,0 +1,63 @@
+DROP TABLE IF EXISTS `MemoryInfo`;
+
+DROP TABLE IF EXISTS `AssetAllocations`;
+DROP TABLE IF EXISTS `DBs`;
+
+--
+-- Common.
+--
+CREATE TABLE `AssetAllocations`(
+ `id` int NOT NULL AUTO_INCREMENT, 
+  `package` varchar(1024) NOT NULL,
+  `tagtime` varchar(512) NOT NULL,
+  `name` varchar(1024) NOT NULL,
+  `size` varchar(512) NOT NULL,
+
+PRIMARY KEY (`id`)
+) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin;
+
+CREATE TABLE `DBs`(
+ `id` int NOT NULL AUTO_INCREMENT,  
+  `package` varchar(1024) NOT NULL,
+  `tagtime` varchar(512) NOT NULL,
+  `name` varchar(1024) NOT NULL,
+  `pgsz` int NOT NULL,
+  `dbsz` int NOT NULL,
+  `lookaside` int NOT NULL,
+  `cache` varchar(512) NOT NULL,
+
+PRIMARY KEY (`id`)
+) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin;
+
+
+CREATE TABLE `MemoryInfo` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  
+  `package` varchar(1024) NOT NULL,
+  `tagtime` varchar(512) NOT NULL,
+   `clicktime` varchar(512) NOT NULL,
+  `timestamp` varchar(512) NOT NULL,
+  `image_pss` int NOT NULL,
+  `image_pd` int NOT NULL,
+ `graphics_pss` int NOT NULL,
+	`graphics_pd`  int NOT NULL,
+	`gl_pss` int NOT NULL,
+	`gl_pd` int NOT NULL,
+	`total_pss` int NOT NULL,
+	`total_pd` int NOT NULL,
+	`views` int NOT NULL,
+	`viewrootimpl` int NOT NULL,
+	`opensslsockets` int NOT NULL,
+	`sql_memory_used` int NOT NULL,
+	`sql_pagecache_overflow` int NOT NULL,
+	`sql_malloc_size` int NOT NULL,
+	`db` varchar(4096) NOT NULL,
+	`assets` varchar(4096) NOT NULL,
+  
+
+  PRIMARY KEY (`id`)
+) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin;
+
+
+
+
